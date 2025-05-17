@@ -1,13 +1,4 @@
 
-## 4.9.0.56 (17-05-2025)
-- Update to latest version from linuxserver/docker-emby (changelog : https://github.com/linuxserver/docker-emby/releases)
-
-## 4.9.0.52 (10-05-2025)
-- Update to latest version from linuxserver/docker-emby (changelog : https://github.com/linuxserver/docker-emby/releases)
-
-## 4.9.0.51 (03-05-2025)
-- Update to latest version from linuxserver/docker-emby (changelog : https://github.com/linuxserver/docker-emby/releases)
-
 ## 4.9.0.50 (26-04-2025)
 - Update to latest version from linuxserver/docker-emby (changelog : https://github.com/linuxserver/docker-emby/releases)
 - WARNING : migration of config to addon_config instead of homeassistant config folder. Allows automatic backups. The location of the database however is not changed.

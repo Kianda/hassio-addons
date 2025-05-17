@@ -2,14 +2,14 @@
 # shellcheck shell=bash
 set -e
 
+# Ensure required commands are installed
+for cmd in yq amixer; do
+    command -v "$cmd" >/dev/null 2>&1 || { bashio::log.fatal "$cmd is required but not installed. Exiting."; exit 1; }
+done
+
 # Default Variables
 DEFAULT_BIRDSONGS_FOLDER="/data/clips/"
-CONFIG_LOCATION="/config/config.yaml"
-
-if [ ! -f "$CONFIG_LOCATION" ]; then
-    bashio::log.warning "There is no config.yaml yet in the config folder, downloading a default one. Please customize"
-    curl -L -s -S https://raw.githubusercontent.com/tphakala/birdnet-go/refs/heads/main/internal/conf/config.yaml -o "$CONFIG_LOCATION"
-fi
+CONFIG_LOCATIONS=("/config/config.yaml" "/internal/conf/config.yaml")
 
 #################
 # Migrate Database
@@ -24,7 +24,12 @@ fi
 ######################
 CURRENT_BIRDSONGS_FOLDER="clips/"
 # Read the current folder from config files
-CURRENT_BIRDSONGS_FOLDER="$(yq '.realtime.audio.export.path' "$CONFIG_LOCATION" | tr -d '\"')"
+for configloc in "${CONFIG_LOCATIONS[@]}"; do
+    if [ -f "$configloc" ]; then
+        CURRENT_BIRDSONGS_FOLDER="$(yq '.realtime.audio.export.path' "$configloc" | tr -d '\"')"
+        break
+    fi
+done
 CURRENT_BIRDSONGS_FOLDER="${CURRENT_BIRDSONGS_FOLDER:-$DEFAULT_BIRDSONGS_FOLDER}"
 
 # Adjust default path if it matches the default string
@@ -55,7 +60,11 @@ bashio::log.info "... audio clips saved to $BIRDSONGS_FOLDER according to addon 
 if [[ "${CURRENT_BIRDSONGS_FOLDER%/}" != "${BIRDSONGS_FOLDER%/}" ]]; then
     bashio::log.warning "Birdsongs folder changed from $CURRENT_BIRDSONGS_FOLDER to $BIRDSONGS_FOLDER"
     # Update config files with the new birdsongs folder path
-    yq -i -y ".realtime.audio.export.path = \"$BIRDSONGS_FOLDER/\"" "$CONFIG_LOCATION"
+    for configloc in "${CONFIG_LOCATIONS[@]}"; do
+        if [ -f "$configloc" ]; then
+            yq -i -y ".realtime.audio.export.path = \"$BIRDSONGS_FOLDER/\"" "$configloc"
+        fi
+    done
     # Move files only if sqlite paths changed
     if [[ -d "$CURRENT_BIRDSONGS_FOLDER" && "$(ls -A "$CURRENT_BIRDSONGS_FOLDER")" ]]; then
         bashio::log.warning "Migrating files from $CURRENT_BIRDSONGS_FOLDER to $BIRDSONGS_FOLDER"
@@ -98,5 +107,16 @@ fi
 bashio::log.info "Correcting configuration for defaults"
 
 # Update database location in config files
-yq -i -y ".output.sqlite.path = \"/config/birdnet.db\"" "$CONFIG_LOCATION"
-bashio::log.info "... database is located in /config/birdnet.db"
+for configloc in "${CONFIG_LOCATIONS[@]}"; do
+    if [ -f "$configloc" ]; then
+        yq -i -y ".output.sqlite.path = \"/config/birdnet.db\"" "$configloc"
+        bashio::log.info "... database is located in $configloc"
+    fi
+done
+
+# Adjust microphone volume if needed
+current_volume="$(amixer sget Capture | grep -oP '\[\d+%\]' | tr -d '[]%' | head -1 2>/dev/null || echo "100")"
+if [[ "$current_volume" -eq 0 ]]; then
+    amixer sset Capture 70%
+    bashio::log.warning "Microphone was off, volume set to 70%."
+fi

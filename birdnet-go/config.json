@@ -69,10 +69,7 @@
     "/dev/nvme1",
     "/dev/nvme2"
   ],
-  "environment": {
-    "BIRDNET_UID": "0",
-    "BIRDNET_GID": "0"
-  },
+  "environment": {},
   "image": "ghcr.io/alexbelgium/birdnet-go-{arch}",
   "ingress": true,
   "ingress_stream": true,
@@ -84,7 +81,8 @@
   ],
   "name": "Birdnet-go",
   "options": {
-    "BIRDSONGS_FOLDER": "/config/clips"
+    "BIRDSONGS_FOLDER": "/config/clips",
+    "COMMAND": "realtime"
   },
   "panel_admin": false,
   "panel_icon": "mdi:bird",
@@ -101,6 +99,7 @@
   "schema": {
     "ALSA_CARD": "int?",
     "BIRDSONGS_FOLDER": "str?",
+    "COMMAND": "str",
     "TZ": "str?",
     "cifsdomain": "str?",
     "cifspassword": "str?",
@@ -115,5 +114,5 @@
   "slug": "birdnet-go",
   "udev": true,
   "url": "https://github.com/alexbelgium/hassio-addons/tree/master/birdnet-go",
-  "version": "20250419"
+  "version": "20250316"
 }

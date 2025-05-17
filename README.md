@@ -44,20 +44,28 @@ If you want to do add the repository manually, please follow the procedure highl
 
 ### Number of addons
 
-- In the repository : 103
-- Installed : 75413
+- In the repository : 101
+- Installed : 94242
 
 ### Top 3
 
-1. Filebrowser (26982x)
-2. Portainer (7272x)
-3. Myelectricaldata (3269x)
+1. Filebrowser (25607x)
+2. Portainer (10604x)
+3. Myelectricaldata (3165x)
 
 ### Architectures used
 
-- amd64: 59%
-- aarch64: 36%
-- armv7: 5%
+- amd64: 56%
+- aarch64: 40%
+- armv7: 4%
+
+### Total downloads evolution
+
+<img src="https://raw.githubusercontent.com/alexbelgium/hassio-addons/master/.github/stats.png" width=500px>
+
+### Specific downloads evolution
+
+<img src="https://raw.githubusercontent.com/alexbelgium/hassio-addons/master/.github/stats_addons.png" width=500px>
 
 ### Stars evolution
 
@@ -244,21 +252,10 @@ If you want to do add the repository manually, please follow the procedure highl
 ![amd64][amd64-badge]
 ![armv7no][armv7no-badge]
 
-&#10003; ![image](https://api.iconify.design/mdi/emby.svg) [Emby](emby/) : A free Software Media System that puts you in control of managing and streaming your media
+&#10003; ![image](https://api.iconify.design/mdi/emby.svg) [Emby NAS](emby/) : A free Software Media System that puts you in control of managing and streaming your media
 
 &emsp;&emsp;![Version](https://img.shields.io/badge/dynamic/json?label=Version&query=%24.version&url=https%3A%2F%2Fraw.githubusercontent.com%2Falexbelgium%2Fhassio-addons%2Fmaster%2Femby%2Fconfig.json)
 ![Update](https://img.shields.io/badge/dynamic/json?label=Updated&query=%24.last_update&url=https%3A%2F%2Fraw.githubusercontent.com%2Falexbelgium%2Fhassio-addons%2Fmaster%2Femby%2Fupdater.json)
-![aarch64][aarch64-badge]
-![amd64][amd64-badge]
-![armv7no][armv7no-badge]
-![ingress][ingress-badge]
-![smb][smb-badge]
-![localdisks][localdisks-badge]
-
-&#10003; ![image](https://api.iconify.design/mdi/emby.svg) [Emby Beta](emby_beta/) : A free Software Media System that puts you in control of managing and streaming your media (beta version)
-
-&emsp;&emsp;![Version](https://img.shields.io/badge/dynamic/json?label=Version&query=%24.version&url=https%3A%2F%2Fraw.githubusercontent.com%2Falexbelgium%2Fhassio-addons%2Fmaster%2Femby_beta%2Fconfig.json)
-![Update](https://img.shields.io/badge/dynamic/json?label=Updated&query=%24.last_update&url=https%3A%2F%2Fraw.githubusercontent.com%2Falexbelgium%2Fhassio-addons%2Fmaster%2Femby_beta%2Fupdater.json)
 ![aarch64][aarch64-badge]
 ![amd64][amd64-badge]
 ![armv7no][armv7no-badge]
@@ -274,7 +271,7 @@ If you want to do add the repository manually, please follow the procedure highl
 ![amd64][amd64-badge]
 ![armv7no][armv7no-badge]
 
-&#10003; ![image](https://api.iconify.design/mdi/file-search.svg) [Filebrowser (26982x)](filebrowser/) : filebrowser provides a file managing interface within a specified directory and it can be used to upload, delete, preview, rename and edit your files
+&#10003; ![image](https://api.iconify.design/mdi/file-search.svg) [Filebrowser (25607x)](filebrowser/) : filebrowser provides a file managing interface within a specified directory and it can be used to upload, delete, preview, rename and edit your files
 
 &emsp;&emsp;![Version](https://img.shields.io/badge/dynamic/json?label=Version&query=%24.version&url=https%3A%2F%2Fraw.githubusercontent.com%2Falexbelgium%2Fhassio-addons%2Fmaster%2Ffilebrowser%2Fconfig.json)
 ![Update](https://img.shields.io/badge/dynamic/json?label=Updated&query=%24.last_update&url=https%3A%2F%2Fraw.githubusercontent.com%2Falexbelgium%2Fhassio-addons%2Fmaster%2Ffilebrowser%2Fupdater.json)
@@ -469,15 +466,6 @@ If you want to do add the repository manually, please follow the procedure highl
 ![aarch64][aarch64-badge]
 ![amd64][amd64-badge]
 ![armv7no][armv7no-badge]
-
-&#10003; ![image](https://api.iconify.design/mdi/speedometer.svg) [LibreSpeed](librespeed/) : A very lightweight speed test implemented in Javascript, using XMLHttpRequest and Web Workers
-
-&emsp;&emsp;![Version](https://img.shields.io/badge/dynamic/json?label=Version&query=%24.version&url=https%3A%2F%2Fraw.githubusercontent.com%2Falexbelgium%2Fhassio-addons%2Fmaster%2Flibrespeed%2Fconfig.json)
-![Update](https://img.shields.io/badge/dynamic/json?label=Updated&query=%24.last_update&url=https%3A%2F%2Fraw.githubusercontent.com%2Falexbelgium%2Fhassio-addons%2Fmaster%2Flibrespeed%2Fupdater.json)
-![aarch64][aarch64-badge]
-![amd64][amd64-badge]
-![armv7no][armv7no-badge]
-![ingress][ingress-badge]
 
 &#10003;  [Lidarr NAS](lidarr/) : Music collection manager for Usenet and BitTorrent users
 
@@ -678,7 +666,7 @@ If you want to do add the repository manually, please follow the procedure highl
 ![smb][smb-badge]
 ![localdisks][localdisks-badge]
 
-&#10003; ![image](https://api.iconify.design/mdi/docker.svg) [Portainer (7272x)](portainer/) : Manage your Docker environment with ease
+&#10003; ![image](https://api.iconify.design/mdi/docker.svg) [Portainer (10604x)](portainer/) : Manage your Docker environment with ease
 
 &emsp;&emsp;![Version](https://img.shields.io/badge/dynamic/json?label=Version&query=%24.version&url=https%3A%2F%2Fraw.githubusercontent.com%2Falexbelgium%2Fhassio-addons%2Fmaster%2Fportainer%2Fconfig.json)
 ![Update](https://img.shields.io/badge/dynamic/json?label=Updated&query=%24.last_update&url=https%3A%2F%2Fraw.githubusercontent.com%2Falexbelgium%2Fhassio-addons%2Fmaster%2Fportainer%2Fupdater.json)
@@ -687,7 +675,7 @@ If you want to do add the repository manually, please follow the procedure highl
 ![armv7][armv7-badge]
 ![ingress][ingress-badge]
 
-&#10003;  [Portainer (7272x) Agent](portainer_agent/) : An agent used to manage all the resources in a Swarm cluster
+&#10003;  [Portainer (10604x) Agent](portainer_agent/) : An agent used to manage all the resources in a Swarm cluster
 
 &emsp;&emsp;![Version](https://img.shields.io/badge/dynamic/json?label=Version&query=%24.version&url=https%3A%2F%2Fraw.githubusercontent.com%2Falexbelgium%2Fhassio-addons%2Fmaster%2Fportainer_agent%2Fconfig.json)
 ![Update](https://img.shields.io/badge/dynamic/json?label=Updated&query=%24.last_update&url=https%3A%2F%2Fraw.githubusercontent.com%2Falexbelgium%2Fhassio-addons%2Fmaster%2Fportainer_agent%2Fupdater.json)
